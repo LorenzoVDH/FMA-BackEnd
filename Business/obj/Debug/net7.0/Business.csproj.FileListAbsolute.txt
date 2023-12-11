@@ -1,0 +1,15 @@
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\bin\Debug\net7.0\Business.deps.json
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\bin\Debug\net7.0\Business.dll
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\bin\Debug\net7.0\Business.pdb
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\bin\Debug\net7.0\FleetManager.EntityFrameworkDAL.dll
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\bin\Debug\net7.0\FleetManager.EntityFrameworkDAL.pdb
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\obj\Debug\net7.0\Business.csproj.AssemblyReference.cache
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\obj\Debug\net7.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\obj\Debug\net7.0\Business.AssemblyInfoInputs.cache
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\obj\Debug\net7.0\Business.AssemblyInfo.cs
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\obj\Debug\net7.0\Business.csproj.CoreCompileInputs.cache
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\obj\Debug\net7.0\Business.csproj.CopyComplete
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\obj\Debug\net7.0\Business.dll
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\obj\Debug\net7.0\refint\Business.dll
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\obj\Debug\net7.0\Business.pdb
+C:\IBOTraject\Fleet Manager Local\FleetManager\Business\obj\Debug\net7.0\ref\Business.dll

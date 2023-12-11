@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FleetManager.MAUIFront.MVVM.Views.MyFuelCardView"
+             Title="My Fuelcard">
+    <ScrollView>
+        <VerticalStackLayout Margin="40" Spacing="30">
+            <Button BackgroundColor="{StaticResource MyFuelCardColourSecondary}" Text="Make An Inquiry" HorizontalOptions="Center" Clicked="OnClick_MakeAnInquiry" Padding="0" FontSize="Medium" WidthRequest="300" HeightRequest="40" />
+            <Frame IsVisible="{Binding ShowFuelCard}" BorderColor="Transparent" CornerRadius="15" BackgroundColor="{StaticResource MyFuelCardColourPrimary}" Margin="0, 0, 0, 30">
+                <VerticalStackLayout Spacing="10" Margin="15">
+                    <VerticalStackLayout>
+                        <Label Text="Cardnumber" FontSize="Large" FontAttributes="Bold" TextColor="White" BackgroundColor="{StaticResource MyFuelCardColourTertiary}"/>
+                        <Label Text="{Binding ViewModel.FuelCard.Cardnumber}" FontSize="Large" TextColor="White" />
+                    </VerticalStackLayout>
+                    
+                    <VerticalStackLayout>
+                        <Label Text="Valid until" FontSize="Large" FontAttributes="Bold" TextColor="White" BackgroundColor="{StaticResource MyFuelCardColourTertiary}"/>
+                        <Label Text="{Binding ViewModel.FuelCard.ValidityEndDate, StringFormat='{0:d}'}" FontSize="Large" TextColor="White" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout>
+                        <Label Text="Fueltype" FontSize="Large" FontAttributes="Bold" TextColor="White" BackgroundColor="{StaticResource MyFuelCardColourTertiary}"/>
+                        <Label Text="{Binding ViewModel.FuelCard.FuelType}" FontSize="Large" TextColor="White" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout>
+                        <Label Text="Extra services" 
+                                           TextColor="White"
+                                           FontSize="Large" 
+                                           FontAttributes="Bold"
+                                           BackgroundColor="{StaticResource MyFuelCardColourTertiary}"/>
+                        <CollectionView ItemsSource="{Binding ViewModel.FuelCard.ExtraServices}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding ., StringFormat=' - {0}'}" 
+                                                       TextColor="White"
+                                                       FontSize="Medium"/>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+            <Label IsVisible="{Binding ShowTextFuelCardUnavailable}" Text="No FuelCard Available" FontSize="Large" HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FleetManager.MAUIFront.MVVM.Views.LoginView"
+             Title="Login"
+             BackgroundColor="{StaticResource Background}">
+    
+    <VerticalStackLayout Margin="40" Spacing="90" VerticalOptions="Center">
+        <Label 
+            Text="Welcome to Fleet Manager, please login to proceed."
+            FontSize="Title"
+            HorizontalTextAlignment="Center"
+            TextColor="{StaticResource Primary}" />
+        <VerticalStackLayout>
+            <Label Text="Email: "/>
+            <Entry x:Name="emailInput"/>
+            <Label Text="Password: "/>
+            <Entry x:Name="passwordInput" IsPassword="True"/>
+        </VerticalStackLayout>
+        <Button 
+            Text="Login"
+            FontSize="Large"
+            HeightRequest="80"
+            WidthRequest="190"
+            TextColor="{StaticResource Background}"
+            BackgroundColor="{StaticResource Secondary}"
+            Clicked="OnClick_Login" />
+        <Label 
+            Text="© LorenzoVDH"
+            VerticalOptions="End" 
+            HorizontalOptions="Center"
+            TextColor="{StaticResource Tertiary}" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FleetManager.MAUIFront.MVVM.Views.MyInfoView"
+             Title="My Info">
+
+    <ScrollView>
+        <VerticalStackLayout Margin="40" Spacing="30">
+            <Button BackgroundColor="{StaticResource MyInfoColourSecondary}" Text="Request A Change" HorizontalOptions="Center" Clicked="OnClick_RequestChange" Padding="0" FontSize="Medium" WidthRequest="300" HeightRequest="40" />
+            <Frame BorderColor="Transparent" CornerRadius="15" BackgroundColor="{StaticResource MyInfoColourPrimary}" Margin="0, 0, 0, 30">
+                <VerticalStackLayout Spacing="10" Margin="15">
+                    <Frame CornerRadius="15" BorderColor="Transparent" BackgroundColor="{StaticResource MyInfoColourTertiary}">
+                        <Label Text="{Binding Driver.FullName}" 
+                                    TextColor="White" 
+                                    FontSize="Title" 
+                                    FontAttributes="Bold" 
+                                    HorizontalTextAlignment="Center" />
+                    </Frame>
+
+                    <VerticalStackLayout>
+                        <Label Text="Date Of Birth" FontSize="Large" FontAttributes="Bold" TextColor="White" BackgroundColor="{StaticResource MyInfoColourTertiary}"/>
+                        <Label x:Name="driver_dateOfBirth" Text="{Binding Driver.DateOfBirth, StringFormat='{0:d}'}" FontSize="Large" TextColor="White" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout>
+                        <Label Text="Address" FontSize="Large" FontAttributes="Bold" TextColor="White" BackgroundColor="{StaticResource MyInfoColourTertiary}"/>
+                        <Label x:Name="driver_fullAddress" Text="{Binding Driver.FullAddress}" FontSize="Large" TextColor="White" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout>
+                        <Label Text="National Registration Nr." FontSize="Large" FontAttributes="Bold" TextColor="White" BackgroundColor="{StaticResource MyInfoColourTertiary}"/>
+                        <Label x:Name="driver_nationalRegistrationNumber" Text="{Binding Driver.NationalRegistrationNumber}" FontSize="Large" TextColor="White" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout>
+                        <Label Text="License" FontSize="Large" FontAttributes="Bold" TextColor="White" BackgroundColor="{StaticResource MyInfoColourTertiary}"/>
+                        <Label x:Name="driver_license" Text="{Binding Driver.License}" FontSize="Large" TextColor="White" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

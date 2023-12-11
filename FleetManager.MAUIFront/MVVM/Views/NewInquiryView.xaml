@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FleetManager.MAUIFront.MVVM.Views.NewInquiryView"
+             Title="{Binding ViewData.Title}">
+    <VerticalStackLayout Margin="30">
+        <Frame BorderColor="Transparent" CornerRadius="15" BackgroundColor="{Binding ViewData.ColourPrimary}" Margin="0, 0, 0, 30">
+            <VerticalStackLayout Spacing="10" Margin="15">
+                <VerticalStackLayout>
+                    <Label FontSize="Large" Text="Subject " FontAttributes="Bold" TextColor="White" BackgroundColor="{Binding ViewData.ColourTertiary}"/>
+                    <Picker x:Name="EntryInquiryTypeSelector" ItemsSource="{Binding ViewData.SelectableInquiryTypes}" ItemDisplayBinding="{Binding Name}" FontSize="Large" TextColor="White" SelectedIndexChanged="OnChange_UpdateSelectedInquiry" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout IsVisible="{Binding ShowVehicleOptions}">
+                    <Label FontSize="Large" Text="Vehicle " FontAttributes="Bold" TextColor="White" BackgroundColor="{Binding ViewData.ColourTertiary}"/>
+                    <Picker x:Name="EntryVehicleSelector" ItemsSource="{Binding ViewData.SelectableVehicles}" ItemDisplayBinding="{Binding Name}" FontSize="Large" TextColor="White"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout IsVisible="{Binding SelectedInquiryNeedsAppointment}">
+                    <Label FontSize="Large" Text="Preferred Appoinment Dates " FontAttributes="Bold" TextColor="White" BackgroundColor="{Binding ViewData.ColourTertiary}"/>
+                    <DatePicker x:Name="preferredAppointmentDatePicker" FontSize="Large" TextColor="White" Date="{Binding ViewData.Inquiry.PreferredDate}"/>
+                    <DatePicker x:Name="preferredAppointmentDatePickerBackup" FontSize="Large" TextColor="White" Date="{Binding ViewData.Inquiry.PreferredDateBackup}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label FontSize="Large" Text="Comment " FontAttributes="Bold" TextColor="White" BackgroundColor="{Binding ViewData.ColourTertiary}"/>
+                    <Entry x:Name="EntryComment" FontSize="Large" TextColor="White"/>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Button BackgroundColor="{Binding ViewData.ColourPrimary}" Text="Send This Inquiry" HorizontalOptions="Center" Clicked="OnClick_SendInquiry"  FontSize="Large" WidthRequest="300" HeightRequest="80" />
+    </VerticalStackLayout>
+</ContentPage>

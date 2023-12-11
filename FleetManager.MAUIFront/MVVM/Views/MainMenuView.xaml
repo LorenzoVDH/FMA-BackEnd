@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FleetManager.MAUIFront.MVVM.Views.MainMenuView"
+             Title="Fleet Manager">
+    <VerticalStackLayout Spacing="30" Margin="50">
+        <Button HeightRequest="80" WidthRequest="300" FontSize="Large"  BackgroundColor="{StaticResource MyInfoColourPrimary}"         Text="My Info"                  Clicked="OnClick_GoToMyInfo" />
+        <Button HeightRequest="80" WidthRequest="300" FontSize="Large"  BackgroundColor="{StaticResource MyVehiclesColourPrimary}"     Text="My Vehicles"              Clicked="OnClick_GoToMyVehicles" />
+        <Button HeightRequest="80" WidthRequest="300" FontSize="Large"  BackgroundColor="{StaticResource MyFuelCardColourPrimary}"     Text="My Fuel Card"             Clicked="OnClick_GoToMyFuelCard" />
+        <Button HeightRequest="80" WidthRequest="300" FontSize="Large"  BackgroundColor="{StaticResource MyInquiriesColourPrimary}"    Text="My Pending Inquiries"     Clicked="OnClick_GoToMyInquiries" />
+        <Button HeightRequest="50" WidthRequest="180" FontSize="Medium" BackgroundColor="{StaticResource Tertiary}"                    Text="Log out"                  Clicked="OnClick_Logout" Margin="130"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "hjtnwK1VhWZMgaA0a1VGErJRUnLqCyCkOxHsaYHj+Ik=",
+  "Source": "FleetManager.WriteAPI",
+  "BasePath": "_content/FleetManager.WriteAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

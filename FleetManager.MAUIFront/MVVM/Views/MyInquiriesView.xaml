@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Converters="clr-namespace:FleetManager.MAUIFront.HelperClasses.Converters;assembly=FleetManager.MAUIFront"
+             x:Class="FleetManager.MAUIFront.MVVM.Views.MyInquiriesView"
+             Title="My Inquiries">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:IsDateNotNullConverter x:Key="IsDateNotNullConverter"/>
+            <Converters:InquiryStatusFormatter x:Key="InquiryStatusFormatter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Margin="40" Spacing="30">
+            <Button BackgroundColor="{StaticResource MyInquiriesColourSecondary}" Text="Make A New Inquiry" HorizontalOptions="Center" Clicked="OnClick_MakeAnInquiry" Padding="0" FontSize="Medium" WidthRequest="300" HeightRequest="40"  />
+            <CollectionView IsVisible="{Binding ShowInquiries}" ItemsSource="{Binding ViewModel.Inquiries}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Transparent" CornerRadius="15" BackgroundColor="{StaticResource MyInquiriesColourPrimary}" Margin="0, 0, 0, 15">
+                            <VerticalStackLayout Spacing="5" Margin="5">
+                                <VerticalStackLayout>
+                                    <Frame CornerRadius="15" BorderColor="Transparent" BackgroundColor="{StaticResource MyInquiriesColourTertiary}">
+                                        <VerticalStackLayout HorizontalOptions="Center">
+                                            <Button Text="{Binding Item.InquiryTypeName}" 
+                                                   TextColor="White" 
+                                                   FontSize="Title" 
+                                                   FontAttributes="Bold"
+                                                   BackgroundColor="{StaticResource MyInquiriesColourTertiary}"
+                                                   Clicked="OnClick_ToggleDetails"/>
+                                            <HorizontalStackLayout HorizontalOptions="Center">
+                                                <Label Text="{Binding Item.InquiryDate, StringFormat='{0:d}'}"
+                                                   TextColor="White"
+                                                   FontSize="Small"
+                                                   HorizontalTextAlignment="Center"/>
+                                                <Label Text="{Binding Item.VehicleName, StringFormat=' {0:d}'}"
+                                                   TextColor="White"
+                                                   FontSize="Small"
+                                                   FontAttributes="Bold"
+                                                   HorizontalTextAlignment="Center"/>
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout IsVisible="{Binding IsExpanded}">
+                                    <VerticalStackLayout IsVisible="{Binding Item.PreferredDate, Converter={StaticResource IsDateNotNullConverter}}">
+                                        <Label Text="Preferred Dates"                 
+                                           TextColor="White" 
+                                           FontSize="Large" 
+                                           FontAttributes="Bold"
+                                           BackgroundColor="{StaticResource MyInquiriesColourTertiary}"/>
+
+                                        <VerticalStackLayout>
+                                            <Label Text="{Binding Item.PreferredDate, StringFormat='- {0:d}'}" 
+                                               TextColor="White" 
+                                               FontSize="Medium" />
+                                            <Label Text="{Binding Item.PreferredDateBackup, StringFormat='- {0:d}'}" 
+                                               TextColor="White" 
+                                               FontSize="Medium" />
+                                        </VerticalStackLayout>
+                                    </VerticalStackLayout>
+
+                                    <VerticalStackLayout>
+                                        <Label Text="Status"                 
+                                           TextColor="White" 
+                                           FontSize="Large" 
+                                           FontAttributes="Bold"
+                                           BackgroundColor="{StaticResource MyInquiriesColourTertiary}"/>
+
+                                        <Label Text="{Binding Item.Status, Converter={StaticResource InquiryStatusFormatter}}" 
+                                           TextColor="White" 
+                                           FontSize="Medium" />
+                                    </VerticalStackLayout>
+
+                                    <VerticalStackLayout>
+                                        <Label Text="Comment"                 
+                                           TextColor="White" 
+                                           FontSize="Large" 
+                                           FontAttributes="Bold"
+                                           BackgroundColor="{StaticResource MyInquiriesColourTertiary}"/>
+
+                                        <Label Text="{Binding Item.Comment}" 
+                                           TextColor="White" 
+                                           FontSize="Medium" />
+                                    </VerticalStackLayout>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label IsVisible="{Binding ShowTextInquiriesUnavailable}" Text="No Inquiries Available" FontSize="Large" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

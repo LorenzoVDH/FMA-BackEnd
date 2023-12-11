@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FleetManager.MAUIFront.MVVM.Views.MyVehiclesView"
+             Title="My Vehicles">
+
+    <ScrollView>
+        <VerticalStackLayout Margin="40" Spacing="30">
+            <Button BackgroundColor="{StaticResource MyVehiclesColourSecondary}" Text="Make An Inquiry" HorizontalOptions="Center" Clicked="OnClick_MakeAnInquiry" Padding="0" FontSize="Medium" WidthRequest="300" HeightRequest="40"  />
+            <CollectionView ItemsSource="{Binding ViewModel.Vehicles}" IsVisible="{Binding ShowVehicles}"> 
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Transparent" CornerRadius="15" BackgroundColor="{StaticResource MyVehiclesColourPrimary}" Margin="0, 0, 0, 30">
+                            <VerticalStackLayout Spacing="15" Margin="5">
+                                <Button Clicked="OnClick_ToggleDetails" Text="{Binding Item.Name}" BorderColor="Transparent" BackgroundColor="{StaticResource MyVehiclesColourTertiary}" TextColor="White" FontSize="Title" FontAttributes="Bold" />
+                                <VerticalStackLayout IsVisible="{Binding IsExpanded}">
+                                    <VerticalStackLayout>
+                                        <Label Text="Chassis"                 
+                                               TextColor="White" 
+                                               FontSize="Large" 
+                                               FontAttributes="Bold"
+                                               BackgroundColor="{StaticResource MyVehiclesColourTertiary}"/>
+                                        <Label Text="{Binding Item.ChassisNumber}" 
+                                               TextColor="White" 
+                                               FontSize="Medium" />
+                                    </VerticalStackLayout>
+
+                                    <VerticalStackLayout>
+                                        <Label Text="Fuel Type"               
+                                               TextColor="White" 
+                                               FontSize="Large" 
+                                               FontAttributes="Bold"
+                                               BackgroundColor="{StaticResource MyVehiclesColourTertiary}"/>
+                                        <Label Text="{Binding Item.FuelType}"      
+                                               TextColor="White" 
+                                               FontSize="Medium" />
+                                    </VerticalStackLayout>
+
+                                    <VerticalStackLayout>
+                                        <Label Text="Registration" 
+                                               TextColor="White" 
+                                               FontSize="Large" 
+                                               FontAttributes="Bold"
+                                               BackgroundColor="{StaticResource MyVehiclesColourTertiary}"/>
+                                        <Label Text="{Binding Item.RegistrationDate, StringFormat='{0:d}'}" 
+                                               TextColor="White"
+                                               FontSize="Medium" />
+                                    </VerticalStackLayout>
+
+                                    <VerticalStackLayout>
+                                        <Label Text="Leasing" 
+                                               TextColor="White"
+                                               FontSize="Large" 
+                                               FontAttributes="Bold"
+                                               BackgroundColor="{StaticResource MyVehiclesColourTertiary}"/>
+                                        <HorizontalStackLayout>
+                                            <Label Text="{Binding Item.LeasingStartDate, StringFormat='{0:d} '}"
+                                                   TextColor="White"
+                                                   FontSize="Medium" />
+                                            <Label Text="{Binding Item.LeasingEndDate, StringFormat=' to {0:d}'}"
+                                                   TextColor="White"
+                                                   FontSize="Medium" />
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+
+                                    <VerticalStackLayout>
+                                        <Label Text="Other drivers" 
+                                               TextColor="White"
+                                               FontSize="Large" 
+                                               FontAttributes="Bold"
+                                               BackgroundColor="{StaticResource MyVehiclesColourTertiary}"/>
+                                        <CollectionView ItemsSource="{Binding Item.Drivers}">
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Label Text="{Binding ., StringFormat=' - {0}'}" 
+                                                           TextColor="White"
+                                                           FontSize="Medium"/>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+                                        </CollectionView>
+                                    </VerticalStackLayout>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label Text="No Vehicles Available" IsVisible="{Binding ShowTextVehiclesUnavailable}" HorizontalOptions="Center" FontSize="Large" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "akq0pGxbruL7Jak6DVCoyiuv3z3Qg0tMO9s+tOUQgi0=",
+  "Source": "FleetManager.ReadAPI",
+  "BasePath": "_content/FleetManager.ReadAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
