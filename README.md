@@ -22,3 +22,5 @@ Works on Windows with Visual Studio 2022
 		
 		xx_justlisa_xx@fleetman.com
 		abcABC123
+
+3. Get the FMA-FrontEnd for the full experience: https://github.com/LorenzoVDH/FMA-FrontEnd 
